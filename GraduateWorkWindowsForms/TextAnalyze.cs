@@ -40,6 +40,31 @@ namespace GraduateWorkWindowsForms
 
         }
 
+        public static string[] GetProposals(string s)
+        {
+            var proposals = new List<string>();
+            var lastIndex = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == '.' && s.Length == i + 1)
+                {
+                    var p = s.Substring(lastIndex, i - lastIndex + 1);
+                    proposals.Add(p);
+                    break;
+                }
+
+                if (s[i] == '.' && s.Length > i + 2 && s[i + 1] == ' ' && char.IsUpper(s[i + 2]))
+                {
+                    var p = s.Substring(lastIndex, i - lastIndex + 1);
+                    proposals.Add(p);
+                    lastIndex = i + 2;
+                }
+            }
+
+            return proposals.ToArray();
+        }
+
         /*
 
         // [START analyze_entities_from_text]

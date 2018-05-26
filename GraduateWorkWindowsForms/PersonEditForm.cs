@@ -15,11 +15,11 @@ namespace GraduateWorkWindowsForms
         private delegate void ChangeTextBox(string nText);
         private event ChangeTextBox ChangeTextBox1;
 
-        public PersonEditForm(Form1 f1)
+        public PersonEditForm(MainForm f1)
         {
             InitializeComponent();
             ChangeTextBox1 += f1.ChangeTextInPersonListUpd;
-            PersonListEdit.Text = f1.PersonList.Text;
+            PersonListEdit.Text = f1.PersonBox.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)

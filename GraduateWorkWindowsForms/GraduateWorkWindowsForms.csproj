@@ -116,6 +116,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PersonEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,13 @@
     <Compile Include="ArtifactEditForm.Designer.cs">
       <DependentUpon>ArtifactEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationFormAnotherone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationFormAnotherone.Designer.cs">
+      <DependentUpon>PresentationFormAnotherone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sentence.cs" />
     <Compile Include="TimeEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +168,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonEditForm.resx">
       <DependentUpon>PersonEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ArtifactEditForm.resx">
       <DependentUpon>ArtifactEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationFormAnotherone.resx">
+      <DependentUpon>PresentationFormAnotherone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TimeEditForm.resx">
       <DependentUpon>TimeEditForm.cs</DependentUpon>

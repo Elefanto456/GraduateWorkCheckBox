@@ -15,6 +15,7 @@ namespace GraduateWorkWindowsForms
         private string workOfArt;
 
         private Dictionary<string, string> forAnalyze = new Dictionary<string, string>();
+        //private string[] proposalsArr;
 
         TextAnalyze textAnalyze = new TextAnalyze();
 
@@ -25,14 +26,14 @@ namespace GraduateWorkWindowsForms
 
         private void personEdit_click(object sender, EventArgs e)
         {
-            PersonEditForm personEditForm = new PersonEditForm(this);
-            personEditForm.Show();
+            //PersonEditForm personEditForm = new PersonEditForm(this);
+            //personEditForm.Show();
         }
 
         private void locationEdit_click(object sender, EventArgs e)
         {
-            LocationEditForm locationEditForm = new LocationEditForm(this);
-            locationEditForm.Show();
+            //LocationEditForm locationEditForm = new LocationEditForm(this);
+            //locationEditForm.Show();
         }
 
         private void artifactEdit_click(object sender, EventArgs e)
@@ -66,9 +67,10 @@ namespace GraduateWorkWindowsForms
                     LocationList.Text = LocationList.Text + kvp.Key + "\n";
                 if (kvp.Value == "ConsumerGood")
                     ConsumerGoodList.Text = ConsumerGoodList.Text + kvp.Key + "\n";
-                if (kvp.Value == "Organisation")
+                if (kvp.Value == "Organization")
                     OrganisationList.Text = OrganisationList.Text + kvp.Key + "\n";              
-            }                       
+            }
+            
         }
 
         public void ChangeTextInPersonListUpd(string newText)
@@ -93,8 +95,16 @@ namespace GraduateWorkWindowsForms
 
         private void showPrototype (object sender, EventArgs e)
         {
-            PresentationForm presentationForm = new PresentationForm();
+            PresentationFormAnotherone presentationForm = new PresentationFormAnotherone(FullText.Text);
             presentationForm.Show();
+
+            /*
+            proposalsArr = TextAnalyze.GetProposals(FullText.Text);
+            for (int i = 0; i < proposalsArr.Length; i++)
+            {
+                ProposalsBox.Text = ProposalsBox.Text + proposalsArr[i] + "\n";
+            }
+            */
         }
 
         private void Form1_Load(object sender, EventArgs e)
