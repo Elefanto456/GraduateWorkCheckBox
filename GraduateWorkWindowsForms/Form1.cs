@@ -95,7 +95,7 @@ namespace GraduateWorkWindowsForms
 
         private void showPrototype (object sender, EventArgs e)
         {
-            PresentationFormAnotherone presentationForm = new PresentationFormAnotherone(FullText.Text);
+            PresentationForm presentationForm = new PresentationForm();
             presentationForm.Show();
 
             /*

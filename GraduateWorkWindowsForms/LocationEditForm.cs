@@ -12,6 +12,8 @@ namespace GraduateWorkWindowsForms
 {
     public partial class LocationEditForm : Form
     {
+
+        /*
         private delegate void ChangeTextBox(string nText);
         private event ChangeTextBox ChangeTextBox1;
 
@@ -27,5 +29,6 @@ namespace GraduateWorkWindowsForms
             ChangeTextBox1(LocationListEdit.Text);
             //Sentences obj upd
         }
+        */
     }
 }

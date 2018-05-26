@@ -70,5 +70,10 @@ namespace GraduateWorkWindowsForms
             ArtifactInfo.Text = "horse";
             TimeInfo.Text = "late afternoon";
         }
+
+        private void PersonInfo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

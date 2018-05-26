@@ -40,7 +40,7 @@
             this.SaveButton.TabIndex = 3;
             this.SaveButton.Text = "save";
             this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            //this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // LocationListEdit
             // 

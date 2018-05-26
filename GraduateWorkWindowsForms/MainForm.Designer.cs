@@ -37,11 +37,9 @@
             this.LocationLbl = new System.Windows.Forms.Label();
             this.ArtefactLbl = new System.Windows.Forms.Label();
             this.ProposalsCheckBox = new System.Windows.Forms.CheckedListBox();
-            this.PersonEditBtn = new System.Windows.Forms.Button();
-            this.LocationEditBtn = new System.Windows.Forms.Button();
-            this.ArtefactEditBtn = new System.Windows.Forms.Button();
             this.PrototypeMakeBtn = new System.Windows.Forms.Button();
             this.AnalysisStatus = new System.Windows.Forms.Label();
+            this.EditItemsBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MainTextBox
@@ -122,35 +120,6 @@
             this.ProposalsCheckBox.TabIndex = 8;
             this.ProposalsCheckBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ProposalsCheckBox_ItemCheck);
             // 
-            // PersonEditBtn
-            // 
-            this.PersonEditBtn.Location = new System.Drawing.Point(28, 676);
-            this.PersonEditBtn.Name = "PersonEditBtn";
-            this.PersonEditBtn.Size = new System.Drawing.Size(124, 36);
-            this.PersonEditBtn.TabIndex = 9;
-            this.PersonEditBtn.Text = "Edit Persons";
-            this.PersonEditBtn.UseVisualStyleBackColor = true;
-            this.PersonEditBtn.Click += new System.EventHandler(this.PersonEditBtn_Click);
-            // 
-            // LocationEditBtn
-            // 
-            this.LocationEditBtn.Location = new System.Drawing.Point(204, 676);
-            this.LocationEditBtn.Name = "LocationEditBtn";
-            this.LocationEditBtn.Size = new System.Drawing.Size(124, 36);
-            this.LocationEditBtn.TabIndex = 10;
-            this.LocationEditBtn.Text = "Edit Locations";
-            this.LocationEditBtn.UseVisualStyleBackColor = true;
-            this.LocationEditBtn.Click += new System.EventHandler(this.LocationEditBtn_Click);
-            // 
-            // ArtefactEditBtn
-            // 
-            this.ArtefactEditBtn.Location = new System.Drawing.Point(375, 676);
-            this.ArtefactEditBtn.Name = "ArtefactEditBtn";
-            this.ArtefactEditBtn.Size = new System.Drawing.Size(124, 36);
-            this.ArtefactEditBtn.TabIndex = 11;
-            this.ArtefactEditBtn.Text = "Edit Artefacts";
-            this.ArtefactEditBtn.UseVisualStyleBackColor = true;
-            // 
             // PrototypeMakeBtn
             // 
             this.PrototypeMakeBtn.Location = new System.Drawing.Point(538, 477);
@@ -164,21 +133,29 @@
             // AnalysisStatus
             // 
             this.AnalysisStatus.AutoSize = true;
-            this.AnalysisStatus.Location = new System.Drawing.Point(548, 219);
+            this.AnalysisStatus.Location = new System.Drawing.Point(544, 272);
             this.AnalysisStatus.Name = "AnalysisStatus";
             this.AnalysisStatus.Size = new System.Drawing.Size(0, 13);
             this.AnalysisStatus.TabIndex = 13;
+            // 
+            // EditItemsBtn
+            // 
+            this.EditItemsBtn.Location = new System.Drawing.Point(538, 219);
+            this.EditItemsBtn.Name = "EditItemsBtn";
+            this.EditItemsBtn.Size = new System.Drawing.Size(137, 41);
+            this.EditItemsBtn.TabIndex = 14;
+            this.EditItemsBtn.Text = "Edit Item";
+            this.EditItemsBtn.UseVisualStyleBackColor = true;
+            this.EditItemsBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 801);
+            this.ClientSize = new System.Drawing.Size(800, 699);
+            this.Controls.Add(this.EditItemsBtn);
             this.Controls.Add(this.AnalysisStatus);
             this.Controls.Add(this.PrototypeMakeBtn);
-            this.Controls.Add(this.ArtefactEditBtn);
-            this.Controls.Add(this.LocationEditBtn);
-            this.Controls.Add(this.PersonEditBtn);
             this.Controls.Add(this.ProposalsCheckBox);
             this.Controls.Add(this.ArtefactLbl);
             this.Controls.Add(this.LocationLbl);
@@ -203,13 +180,11 @@
         private System.Windows.Forms.Label LocationLbl;
         private System.Windows.Forms.Label ArtefactLbl;
         private System.Windows.Forms.CheckedListBox ProposalsCheckBox;
-        private System.Windows.Forms.Button PersonEditBtn;
-        private System.Windows.Forms.Button LocationEditBtn;
-        private System.Windows.Forms.Button ArtefactEditBtn;
         private System.Windows.Forms.Button PrototypeMakeBtn;
         public System.Windows.Forms.RichTextBox PersonBox;
         public System.Windows.Forms.RichTextBox LocationBox;
         public System.Windows.Forms.RichTextBox ArtefactBox;
         private System.Windows.Forms.Label AnalysisStatus;
+        private System.Windows.Forms.Button EditItemsBtn;
     }
 }

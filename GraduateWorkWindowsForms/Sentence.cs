@@ -36,21 +36,15 @@ namespace GraduateWorkWindowsForms
 
         public Dictionary<string, string> GetGoogleItemsDictionary(string text)
         {
-            /*
-            string result = null;
-
-            if (text == sentence)
-            {
-                result = sentence;
-            }
-            else
-            {
-
-            }
-            */
-
+            
             return GoogleItemsDictionary;
         }
+
+        public Dictionary<string, string> GetGoogleItemsDictionary()
+        {
+            return GoogleItemsDictionary;
+        }
+
 
         public string GetSentence(string text)
         {

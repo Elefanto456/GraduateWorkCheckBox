@@ -14,12 +14,11 @@ namespace GraduateWorkWindowsForms
     {
         private string[] proposalsArr;
         private List<Sentence> sentences = new List<Sentence>();
+         
         private Sentence forDataUpd = new Sentence();
-        private List<string> personList = new List<string>();
-        private List<string> locationList = new List<string>();
-        private List<string> artefactList = new List<string>();
-
-
+        //private List<string> personList = new List<string>();
+        //private List<string> locationList = new List<string>();
+        //private List<string> artefactList = new List<string>();
 
         TextAnalyze textAnalyze = new TextAnalyze();
 
@@ -28,6 +27,7 @@ namespace GraduateWorkWindowsForms
             InitializeComponent();
         }
 
+        
         private void TextAnalysisButton_Click(object sender, EventArgs e)
         {
             proposalsArr = TextAnalyze.GetProposals(MainTextBox.Text);
@@ -46,30 +46,8 @@ namespace GraduateWorkWindowsForms
 
         private void PrototypeMakeBtn_Click(object sender, EventArgs e)
         {
-            PresentationFormAnotherone presentationForm = new PresentationFormAnotherone(MainTextBox.Text);
+            PresentationFormAnotherone presentationForm = new PresentationFormAnotherone(this);
             presentationForm.Show();
-        }
-
-        private void PersonEditBtn_Click(object sender, EventArgs e)
-        {
-            PersonEditForm personEditForm = new PersonEditForm(this);
-            personEditForm.Show();
-        }
-
-        public void ChangeTextInPersonListUpd(string newText)
-        {
-            PersonBox.Text = newText;
-        }
-
-        private void LocationEditBtn_Click(object sender, EventArgs e)
-        {
-            LocationEditForm locationEditForm = new LocationEditForm(this);
-            locationEditForm.Show();
-        }
-
-        public void ChangeTextInLocationListUpd(string newText)
-        {
-            LocationBox.Text = newText;
         }
 
         ////https://stackoverflow.com/questions/3666682/which-checkedlistbox-event-triggers-after-a-item-is-checked?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
@@ -117,7 +95,7 @@ namespace GraduateWorkWindowsForms
                     if (item == forDataUpd.GetSentence(item))
                     {
                         Dictionary<string, string> dict = new Dictionary<string, string>();
-                        dict = forDataUpd.GetGoogleItemsDictionary(item);
+                        dict = forDataUpd.GetGoogleItemsDictionary();
 
                         foreach (KeyValuePair<string, string> kvp in dict)
                         {
@@ -129,30 +107,55 @@ namespace GraduateWorkWindowsForms
                             if (kvp.Value == "Location")
                             {
                                 LocationBox.AppendText(kvp.Key + Environment.NewLine);
-
-                            if (kvp.Value == "Organization")
-                            {
-                                LocationBox.AppendText(kvp.Key + Environment.NewLine);
                             }
 
-                            if (kvp.Value == "Other")
-                            {
-                                ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
-                            }
+                                if (kvp.Value == "Organization")
+                                {
+                                    LocationBox.AppendText(kvp.Key + Environment.NewLine);
+                                }
 
-                            if (kvp.Value == "WorkOfArt")
-                            {
-                                ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
-                            }
+                                if (kvp.Value == "Other")
+                                {
+                                    ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
+                                }
 
-                            if (kvp.Value == "ConsumerGood")
-                            {
-                                ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
+                                if (kvp.Value == "WorkOfArt")
+                                {
+                                    ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
+                                }
+
+                                if (kvp.Value == "ConsumerGood")
+                                {
+                                    ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
+                                }
                             }
                         }
                     }
                 }
             }
+
+        public List<Sentence> GetSentences()
+        {
+            List<Sentence> result = new List<Sentence>();
+            for (int i = 0; i < sentences.Count; i++)
+            {
+                result.Add(sentences[i]);
+            }
+            return result;
+        }
+
+
+        public int GetSentencesCount()
+        {
+            int n;
+            n = sentences.Count; ;
+            return n;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
-}
+    }

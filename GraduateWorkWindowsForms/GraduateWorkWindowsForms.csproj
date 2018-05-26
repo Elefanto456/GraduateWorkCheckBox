@@ -146,6 +146,7 @@
     <Compile Include="PresentationFormAnotherone.Designer.cs">
       <DependentUpon>PresentationFormAnotherone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Scene.cs" />
     <Compile Include="Sentence.cs" />
     <Compile Include="TimeEditForm.cs">
       <SubType>Form</SubType>

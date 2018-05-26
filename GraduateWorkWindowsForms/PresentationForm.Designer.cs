@@ -106,6 +106,7 @@
             this.PersonInfo.ReadOnly = true;
             this.PersonInfo.Size = new System.Drawing.Size(626, 20);
             this.PersonInfo.TabIndex = 11;
+            this.PersonInfo.TextChanged += new System.EventHandler(this.PersonInfo_TextChanged);
             // 
             // LocationInfo
             // 

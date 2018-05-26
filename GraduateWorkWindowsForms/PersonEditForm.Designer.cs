@@ -39,7 +39,6 @@
             this.PersonListEdit.Size = new System.Drawing.Size(180, 176);
             this.PersonListEdit.TabIndex = 0;
             this.PersonListEdit.Text = "";
-            this.PersonListEdit.TextChanged += new System.EventHandler(this.Person_TextChanged);
             // 
             // SaveButton
             // 
@@ -49,7 +48,7 @@
             this.SaveButton.TabIndex = 1;
             this.SaveButton.Text = "save";
             this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.button1_Click);
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // PersonEditForm
             // 
@@ -61,6 +60,7 @@
             this.Controls.Add(this.PersonListEdit);
             this.Name = "PersonEditForm";
             this.Text = "PersonEditForm";
+            this.Load += new System.EventHandler(this.PersonEditForm_Load);
             this.ResumeLayout(false);
 
         }
