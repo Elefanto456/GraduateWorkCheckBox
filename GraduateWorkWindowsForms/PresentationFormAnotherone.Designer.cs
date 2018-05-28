@@ -46,6 +46,8 @@
             this.SceneNum = new System.Windows.Forms.Label();
             this.PrevBtn = new System.Windows.Forms.Button();
             this.NextBtn = new System.Windows.Forms.Button();
+            this.PrototypeShowBG = new System.Windows.Forms.GroupBox();
+            this.PrototypeShowBG.SuspendLayout();
             this.SuspendLayout();
             // 
             // ProposalsLbl
@@ -130,7 +132,7 @@
             // ArtifactInfo
             // 
             this.ArtifactInfo.BackColor = System.Drawing.SystemColors.Window;
-            this.ArtifactInfo.Location = new System.Drawing.Point(222, 461);
+            this.ArtifactInfo.Location = new System.Drawing.Point(215, 151);
             this.ArtifactInfo.Name = "ArtifactInfo";
             this.ArtifactInfo.ReadOnly = true;
             this.ArtifactInfo.Size = new System.Drawing.Size(626, 20);
@@ -139,7 +141,7 @@
             // LocationInfo
             // 
             this.LocationInfo.BackColor = System.Drawing.SystemColors.Window;
-            this.LocationInfo.Location = new System.Drawing.Point(222, 419);
+            this.LocationInfo.Location = new System.Drawing.Point(215, 109);
             this.LocationInfo.Name = "LocationInfo";
             this.LocationInfo.ReadOnly = true;
             this.LocationInfo.Size = new System.Drawing.Size(626, 20);
@@ -148,7 +150,7 @@
             // PersonInfo
             // 
             this.PersonInfo.BackColor = System.Drawing.SystemColors.Window;
-            this.PersonInfo.Location = new System.Drawing.Point(222, 380);
+            this.PersonInfo.Location = new System.Drawing.Point(215, 70);
             this.PersonInfo.Name = "PersonInfo";
             this.PersonInfo.ReadOnly = true;
             this.PersonInfo.Size = new System.Drawing.Size(626, 20);
@@ -157,7 +159,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 383);
+            this.label2.Location = new System.Drawing.Point(137, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 16;
@@ -166,7 +168,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(144, 420);
+            this.label3.Location = new System.Drawing.Point(137, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 17;
@@ -175,7 +177,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(144, 464);
+            this.label4.Location = new System.Drawing.Point(137, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 18;
@@ -184,7 +186,7 @@
             // SceneNum
             // 
             this.SceneNum.AutoSize = true;
-            this.SceneNum.Location = new System.Drawing.Point(513, 341);
+            this.SceneNum.Location = new System.Drawing.Point(506, 31);
             this.SceneNum.Name = "SceneNum";
             this.SceneNum.Size = new System.Drawing.Size(78, 13);
             this.SceneNum.TabIndex = 15;
@@ -192,36 +194,48 @@
             // 
             // PrevBtn
             // 
-            this.PrevBtn.Location = new System.Drawing.Point(24, 413);
+            this.PrevBtn.Location = new System.Drawing.Point(17, 103);
             this.PrevBtn.Name = "PrevBtn";
             this.PrevBtn.Size = new System.Drawing.Size(99, 30);
             this.PrevBtn.TabIndex = 24;
             this.PrevBtn.Text = "Prev";
             this.PrevBtn.UseVisualStyleBackColor = true;
+            this.PrevBtn.Click += new System.EventHandler(this.PrevBtn_Click);
             // 
             // NextBtn
             // 
-            this.NextBtn.Location = new System.Drawing.Point(874, 413);
+            this.NextBtn.Location = new System.Drawing.Point(867, 103);
             this.NextBtn.Name = "NextBtn";
             this.NextBtn.Size = new System.Drawing.Size(99, 30);
             this.NextBtn.TabIndex = 25;
             this.NextBtn.Text = "Next";
             this.NextBtn.UseVisualStyleBackColor = true;
+            this.NextBtn.Click += new System.EventHandler(this.NextBtn_Click);
+            // 
+            // PrototypeShowBG
+            // 
+            this.PrototypeShowBG.Controls.Add(this.PersonInfo);
+            this.PrototypeShowBG.Controls.Add(this.NextBtn);
+            this.PrototypeShowBG.Controls.Add(this.SceneNum);
+            this.PrototypeShowBG.Controls.Add(this.PrevBtn);
+            this.PrototypeShowBG.Controls.Add(this.label4);
+            this.PrototypeShowBG.Controls.Add(this.ArtifactInfo);
+            this.PrototypeShowBG.Controls.Add(this.label3);
+            this.PrototypeShowBG.Controls.Add(this.LocationInfo);
+            this.PrototypeShowBG.Controls.Add(this.label2);
+            this.PrototypeShowBG.Location = new System.Drawing.Point(15, 323);
+            this.PrototypeShowBG.Name = "PrototypeShowBG";
+            this.PrototypeShowBG.Size = new System.Drawing.Size(989, 182);
+            this.PrototypeShowBG.TabIndex = 26;
+            this.PrototypeShowBG.TabStop = false;
+            this.PrototypeShowBG.Text = "groupBox1";
             // 
             // PresentationFormAnotherone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 712);
-            this.Controls.Add(this.NextBtn);
-            this.Controls.Add(this.PrevBtn);
-            this.Controls.Add(this.ArtifactInfo);
-            this.Controls.Add(this.LocationInfo);
-            this.Controls.Add(this.PersonInfo);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.SceneNum);
+            this.Controls.Add(this.PrototypeShowBG);
             this.Controls.Add(this.ArtefactLbl);
             this.Controls.Add(this.LocationLbl);
             this.Controls.Add(this.PesonLbl);
@@ -233,6 +247,8 @@
             this.Controls.Add(this.ProposalsLbl);
             this.Name = "PresentationFormAnotherone";
             this.Text = "PresentationFormAnotherone";
+            this.PrototypeShowBG.ResumeLayout(false);
+            this.PrototypeShowBG.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +273,6 @@
         private System.Windows.Forms.Label SceneNum;
         private System.Windows.Forms.Button PrevBtn;
         private System.Windows.Forms.Button NextBtn;
+        private System.Windows.Forms.GroupBox PrototypeShowBG;
     }
 }

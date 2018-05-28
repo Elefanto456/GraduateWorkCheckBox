@@ -47,6 +47,11 @@ namespace GraduateWorkWindowsForms
             }
             return result;
         }
+
+        public int GetNumber()
+        {
+            return number;
+        }
         
     }
 }

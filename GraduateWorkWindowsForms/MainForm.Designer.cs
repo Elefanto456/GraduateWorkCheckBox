@@ -146,7 +146,7 @@
             this.EditItemsBtn.TabIndex = 14;
             this.EditItemsBtn.Text = "Edit Item";
             this.EditItemsBtn.UseVisualStyleBackColor = true;
-            this.EditItemsBtn.Click += new System.EventHandler(this.button1_Click);
+            this.EditItemsBtn.Click += new System.EventHandler(this.EditItemsBtn_Click);
             // 
             // MainForm
             // 

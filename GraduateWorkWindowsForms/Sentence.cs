@@ -9,7 +9,7 @@ namespace GraduateWorkWindowsForms
     public class Sentence
     {
         public Dictionary<string, string> GoogleItemsDictionary = new Dictionary<string, string>();
-        public Dictionary<string, string> CustomItemsDictionary = new Dictionary<string, string>();
+        //public Dictionary<string, string> CustomItemsDictionary = new Dictionary<string, string>();
         private string sentence;
 
         TextAnalyze textAnalyze = new TextAnalyze();
@@ -23,20 +23,27 @@ namespace GraduateWorkWindowsForms
         {
             sentence = text;
             GoogleItemsDictionary = textAnalyze.AnalyzeEntitiesFromText(text);
-            CustomItemsDictionary = GoogleItemsDictionary;
+            //CustomItemsDictionary = GoogleItemsDictionary;
         }
 
-        public Dictionary<string, string> UpdCustomItemsDictionary(Dictionary<string, string> googleDict)
+        public void UpdGoogleItemsDictionary(Dictionary<string, string> newDict)
         {
-            //ToDo
+            GoogleItemsDictionary.Clear();
+            foreach (var item in newDict)
+            {
+                try
+                {
+                    GoogleItemsDictionary.Add(item.Key, item.Value);
+                }
+                catch (ArgumentException)
+                {
 
-
-            return googleDict;
+                }
+            }
         }
 
         public Dictionary<string, string> GetGoogleItemsDictionary(string text)
         {
-            
             return GoogleItemsDictionary;
         }
 
@@ -56,6 +63,7 @@ namespace GraduateWorkWindowsForms
             return sentence;
         }
 
+        /*
         public void SetToGoogleItemsDictionary(string key, string value)
         {
             if (GoogleItemsDictionary.ContainsKey(key))
@@ -68,20 +76,6 @@ namespace GraduateWorkWindowsForms
             }
         }
         
-        /*
-        public string GetFromGoogleItemsDictionary(string key)
-        {
-            string result = null;
-
-            if (GoogleItemsDictionary.ContainsKey(key))
-            {
-                result = GoogleItemsDictionary[key];
-            }
-
-            return result;
-        }
-        */
-
         public void SetToCustomItemsDictionary(string key, string value)
         {
             if (CustomItemsDictionary.ContainsKey(key))
@@ -105,5 +99,6 @@ namespace GraduateWorkWindowsForms
 
             return result;
         }
+        */
     }
 }

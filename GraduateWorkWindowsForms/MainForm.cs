@@ -14,7 +14,10 @@ namespace GraduateWorkWindowsForms
     {
         private string[] proposalsArr;
         private List<Sentence> sentences = new List<Sentence>();
-         
+
+        private List<string> uncheckedItems = new List<string>();
+        private List<string> checkedItems = new List<string>();
+
         private Sentence forDataUpd = new Sentence();
         //private List<string> personList = new List<string>();
         //private List<string> locationList = new List<string>();
@@ -53,9 +56,10 @@ namespace GraduateWorkWindowsForms
         ////https://stackoverflow.com/questions/3666682/which-checkedlistbox-event-triggers-after-a-item-is-checked?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
         private void ProposalsCheckBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            
 
-            List<string> uncheckedItems = new List<string>();
-            List<string> checkedItems = new List<string>();
+            checkedItems.Clear();
+            uncheckedItems.Clear();
 
             foreach (var item in ProposalsCheckBox.CheckedItems)
                 checkedItems.Add(item.ToString());
@@ -82,11 +86,41 @@ namespace GraduateWorkWindowsForms
 
             }
 
+            BoxItemsUpd(checkedItems);
+        }
+        
+
+        private void EditItemsBtn_Click(object sender, EventArgs e)
+        {
+            string checkedItem;
+
+            checkedItem = ProposalsCheckBox.CheckedItems[0].ToString();
+            
+            for (int i = 0; i < sentences.Count; i++)
+            {
+                forDataUpd = sentences[i];
+
+                if (checkedItem == forDataUpd.GetSentence())
+                {
+                    EditForm editForm = new EditForm(sentences[i]);
+                    editForm.FormClosed += EditForm_FormClosed;
+                    editForm.Show();
+                }
+            }   
+        }
+
+        private void EditForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            BoxItemsUpd(checkedItems);
+        }
+
+        private void BoxItemsUpd(List<string> list)
+        {
             PersonBox.Clear();
             ArtefactBox.Clear();
             LocationBox.Clear();
 
-            foreach (string item in checkedItems)
+            foreach (string item in list)
             {
                 for (int i = 0; i < sentences.Count; i++)
                 {
@@ -108,31 +142,34 @@ namespace GraduateWorkWindowsForms
                             {
                                 LocationBox.AppendText(kvp.Key + Environment.NewLine);
                             }
+                            if (kvp.Value == "Organization")
+                            {
+                                LocationBox.AppendText(kvp.Key + Environment.NewLine);
+                            }
 
-                                if (kvp.Value == "Organization")
-                                {
-                                    LocationBox.AppendText(kvp.Key + Environment.NewLine);
-                                }
+                            if (kvp.Value == "Other")
+                            {
+                                ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
+                            }
 
-                                if (kvp.Value == "Other")
-                                {
-                                    ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
-                                }
+                            if (kvp.Value == "WorkOfArt")
+                            {
+                                ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
+                            }
 
-                                if (kvp.Value == "WorkOfArt")
-                                {
-                                    ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
-                                }
-
-                                if (kvp.Value == "ConsumerGood")
-                                {
-                                    ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
-                                }
+                            if (kvp.Value == "ConsumerGood")
+                            {
+                                ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
+                            }
+                            if (kvp.Value == "Artefact")
+                            {
+                                ArtefactBox.AppendText(kvp.Key + Environment.NewLine);
                             }
                         }
                     }
                 }
             }
+        }
 
         public List<Sentence> GetSentences()
         {
@@ -150,12 +187,6 @@ namespace GraduateWorkWindowsForms
             int n;
             n = sentences.Count; ;
             return n;
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+        }        
     }
-    }
+}

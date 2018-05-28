@@ -20,7 +20,10 @@ namespace GraduateWorkWindowsForms
         private List<Sentence> sentences = new List<Sentence>();
         private Sentence forDataUpd = new Sentence();
         private Sentence forSceneMake = new Sentence();
-
+        private List<Scene> scenes = new List<Scene>();
+        private int n = 0;
+        private int index = 0;
+        
         public PresentationFormAnotherone(MainForm f1)
         {
             InitializeComponent();
@@ -117,6 +120,10 @@ namespace GraduateWorkWindowsForms
                             {
                                 UpdArtefactBox.AppendText(kvp.Key + Environment.NewLine);
                             }
+                            if (kvp.Value == "Artefact")
+                            {
+                                UpdArtefactBox.AppendText(kvp.Key + Environment.NewLine);
+                            }
                         }
                     }
                 }
@@ -124,7 +131,7 @@ namespace GraduateWorkWindowsForms
         }
 
         private void SceneMakeBtn_Click(object sender, EventArgs e)
-        {
+        {            
             List<string> checkedItems = new List<string>();
 
             foreach (var item in ProposalsCheckBox.CheckedItems)
@@ -145,61 +152,118 @@ namespace GraduateWorkWindowsForms
                 }
             }
 
-            Scene scene = new Scene(sentencesForAdd, 1);
-            //List<Sentence> list = new List<Sentence>();
-            foreach (var itm in scene.GetSceneList())
+            n++;
+
+            Scene scene = new Scene(sentencesForAdd, n);
+
+           
+
+            scenes.Add(scene);
+
+            foreach (var scn in scenes)
             {
-                foreach (string item in checkedItems)
+                List<Sentence> sentencesInScene = new List<Sentence>();
+                sentencesInScene = scn.GetSceneList();
+                PersonInfo.Text = "";
+                LocationInfo.Text = "";
+                ArtifactInfo.Text = "";
+
+                foreach (var snt in sentencesInScene)
+                {
+                    Dictionary<string, string> dict = new Dictionary<string, string>();
+
+                    dict = snt.GetGoogleItemsDictionary();
+
+                    ShowScene(dict, scn.GetNumber().ToString());                 
+                    
+                }
+            }
+
+            
+        }
+
+        private void PrevBtn_Click(object sender, EventArgs e)
+        {
+            index = Int32.Parse(SceneNum.Text);
+            index--;
+            
+            PersonInfo.Text = "";
+            LocationInfo.Text = "";
+            ArtifactInfo.Text = "";
+
+            ShowSceneByNumber(index);
+
+        }
+
+        private void NextBtn_Click(object sender, EventArgs e)
+        {
+            index = Int32.Parse(SceneNum.Text);
+            index++;
+            
+            PersonInfo.Text = "";
+            LocationInfo.Text = "";
+            ArtifactInfo.Text = "";
+
+            ShowSceneByNumber(index);
+        }
+
+        private void ShowSceneByNumber(int num)
+        {
+            for (int i = 0; i < scenes.Count; i++)
             {
-                
-                    if (item == itm.GetSentence())
+                if (num == scenes[i].GetNumber())
+                {
+                    List<Sentence> snt = scenes[i].GetSceneList();
+                    string number = scenes[i].GetNumber().ToString();
+                    for (int j = 0; j < snt.Count; j++)
                     {
                         Dictionary<string, string> dict = new Dictionary<string, string>();
-                        dict = forSceneMake.GetGoogleItemsDictionary(item);
-
-                        for (int i = 0; i < dict.Count; i++)
-                        {
-                            foreach (KeyValuePair<string, string> kvp in dict)
-                            {
-                                if (kvp.Value == "Person")
-                                {
-                                    PersonInfo.Text = PersonInfo + kvp.Key + ", ";
-                                }
-
-                                if (kvp.Value == "Location")
-                                {
-                                    LocationInfo.Text = LocationInfo + kvp.Key + ", ";
-                                }
-
-                                if (kvp.Value == "Organization")
-                                {
-                                    LocationInfo.Text = LocationInfo + kvp.Key + ", ";
-                                }
-
-                                if (kvp.Value == "Other")
-                                {
-                                    ArtifactInfo.Text = ArtifactInfo + kvp.Key + ", ";
-                                }
-
-                                if (kvp.Value == "WorkOfArt")
-                                {
-                                    ArtifactInfo.Text = ArtifactInfo + kvp.Key + ", ";
-                                }
-
-                                if (kvp.Value == "ConsumerGood")
-                                {
-                                    ArtifactInfo.Text = ArtifactInfo + kvp.Key + ", ";
-                                }
-                            }
-                        }
+                        dict = snt[j].GetGoogleItemsDictionary();
+                        
+                        ShowScene(dict, number);
                     }
                 }
-                
+            }
+        }
 
+        private void ShowScene(Dictionary<string, string> dictionary, string str)
+        {
+            SceneNum.Text = str;
+            foreach (KeyValuePair<string, string> kvp in dictionary)
+            {
+                if (kvp.Value == "Person")
+                {
+                    PersonInfo.Text = PersonInfo.Text + kvp.Key + " ";
+                }
 
+                if (kvp.Value == "Location")
+                {
+                    LocationInfo.Text = LocationInfo.Text + kvp.Key + " ";
+                }
 
-                
+                if (kvp.Value == "Organization")
+                {
+                    LocationInfo.Text = LocationInfo.Text + kvp.Key + " ";
+                }
 
+                if (kvp.Value == "Other")
+                {
+                    ArtifactInfo.Text = ArtifactInfo.Text + kvp.Key + " ";
+                }
+
+                if (kvp.Value == "WorkOfArt")
+                {
+                    ArtifactInfo.Text = ArtifactInfo.Text + kvp.Key + " ";
+                }
+
+                if (kvp.Value == "ConsumerGood")
+                {
+                    ArtifactInfo.Text = ArtifactInfo.Text + kvp.Key + " ";
+                }
+                if (kvp.Value == "Artefact")
+                {
+                    ArtifactInfo.Text = ArtifactInfo.Text + kvp.Key + " ";
+                }
             }
         }
     }
